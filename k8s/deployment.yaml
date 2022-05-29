@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: golang-app
-          image: toshiykst/k8s-golang-app:latest
+          image: toshiykst/golang-app:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
