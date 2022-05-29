@@ -3,3 +3,7 @@ build-image:
 
 push-image:
 	docker push toshiykst/golang-app:latest
+
+deploy-image:
+	make build-image
+	make push-image
