@@ -1,0 +1,17 @@
+apiVersion: skaffold/v2beta10
+kind: Config
+metadata:
+  name: golang-app
+build:
+  artifacts:
+    - image: toshiykst/golang-app
+      context: .
+      docker:
+        dockerfile: Dockerfile
+  local:
+    useBuildkit: true
+    push: false
+deploy:
+  kubectl:
+    manifests:
+      - k8s/*.yaml

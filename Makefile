@@ -1,3 +1,6 @@
+dev:
+	skaffold dev
+
 build-image:
 	docker build -t toshiykst/golang-app .
 
