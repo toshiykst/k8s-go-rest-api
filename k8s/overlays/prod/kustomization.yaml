@@ -1,0 +1,12 @@
+namePrefix: prod-
+
+bases:
+  - ../../base
+
+patchesStrategicMerge:
+  - deployment.yaml
+
+configMapGenerator:
+  - name: env-conf
+    literals:
+      - ENV_NAME=prod

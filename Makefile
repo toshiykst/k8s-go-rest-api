@@ -7,6 +7,15 @@ build-image:
 push-image:
 	docker push toshiykst/golang-app:latest
 
-deploy-image:
+release-image:
 	make build-image
 	make push-image
+
+deploy:
+ifeq ($(env),)
+	@echo "The target env name is required."
+		@echo "Example:"
+		@echo "    $ make deploy env=<dev or stg or prod>"
+else
+	kubectl apply -k k8s/overlays/${env}
+endif

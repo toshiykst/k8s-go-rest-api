@@ -1,0 +1,12 @@
+namePrefix: dev-
+
+bases:
+  - ../../base
+
+patchesStrategicMerge:
+  - deployment.yaml
+
+configMapGenerator:
+  - name: env-conf
+    literals:
+      - ENV_NAME=dev
