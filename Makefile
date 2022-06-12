@@ -2,10 +2,10 @@ dev:
 	skaffold dev
 
 build-image:
-	docker build -t toshiykst/golang-app .
+	docker build -t YOUR_REPOSITORY/golang-app .
 
 push-image:
-	docker push toshiykst/golang-app:latest
+	docker push YOUR_REPOSITORY/golang-app:latest
 
 release-image:
 	make build-image
