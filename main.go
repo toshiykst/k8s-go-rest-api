@@ -9,13 +9,16 @@ import (
 	"github.com/labstack/echo/middleware"
 )
 
+var envName = os.Getenv("ENV_NAME")
+
 func main() {
 	e := echo.New()
 	e.Use(middleware.Logger())
 
 	e.GET("/", func(c echo.Context) error {
-		res := fmt.Sprintf("Hello, k8s app🐶. env: %s", os.Getenv("ENV_NAME"))
-		return c.String(http.StatusOK, res)
+		message := fmt.Sprintf("Hello, k8s golang app🐶. env name: %s", envName)
+
+		return c.String(http.StatusOK, message)
 	})
 
 	e.Logger.Fatal(e.Start(":8080"))
